@@ -1,0 +1,84 @@
+//js中用到的css，动态添加的各个元素的样式
+//目录
+.catelog {
+  & > ul {
+    padding: 0;
+    list-style-type: none;
+    li {
+      list-style-type: none;
+    }
+    a {
+      color: blue;
+    }
+  }
+  .title {
+    font-size: 2em;
+  }
+}
+//latex公式渲染插件渲染结果有两种情况：块级别的image和内联式image
+#cnblogs_post_body {
+  //block形式的图片
+  .block-image {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+  }
+  //内联式图片
+  .inline-image {
+    display: inline;
+    vertical-align: middle;
+  }
+}
+//阅读进度条
+#readProgressBar {
+  height: 2px;
+  width: 0;
+  left: 0;
+  top: 0;
+  position: fixed;
+  background-color: green;
+  z-index: 200;
+}
+//弹出panel，如控制面板
+@panelColor: #eeeeee;
+@padding: 10px;
+.panel {
+  display: none;
+  opacity: 0.9;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #222222;
+  color: @panelColor;
+  z-index: 1200;
+  font-size: 25px;
+  margin: 5% auto;
+  width: fit-content;
+  position:relative;
+  top:5%;
+  text-align: center;
+  a {
+    color: @panelColor;
+    text-decoration: underline;
+  }
+  .header {
+    text-align: center;
+    font-size: 1.2em;
+    border-bottom-style: solid;
+    border-bottom-color: #777777;
+    border-bottom-width: 2px;
+  }
+  .block {
+    padding: @padding;
+    float: left;
+    text-align: left;
+  }
+}
+//顶部的“关于”按钮，用于打开控制面板
+#bannerAboutButton {
+  float: right;
+  padding-right: 40px;
+  text-decoration: underline; //因为可以点击，所以带着下划线
+  cursor: pointer; //因为可以点击，所以鼠标形状为cursor
+  z-index: 200;
+  user-select: none;
+}

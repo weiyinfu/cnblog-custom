@@ -1,0 +1,242 @@
+//不显示以下内容
+#lnkBlogLogo,//博客园的logo
+.postCon,//博客园首页上的博客内容
+.cnblogs_code_toolbar,//博客园代码框工具栏
+.day .postDesc,//每天的博客简介
+#blogTitle h2,//博客园头部的二级标题
+div[id^='ad'],//以ad开头的广告
+.entrylistPostSummary,
+.entrylistItemPostDesc,
+#comment_nav,
+.postDesc,//postDesc包含发布日期、阅读数、评论数
+#green_channel #green_channel_weibo,//微博
+#green_channel #green_channel_wechat ,//微信
+#MyLinks1_NewArticleLink,//新文章  
+.dayTitle ,//日期标题
+#green_channel_weibo,//微博分享
+#green_channel_wechat,//微信
+#mylinks,//我的链接（顶部） 
+#div_digg ,//点赞按钮和反对按钮 
+#mystats,//随笔数、文章数、评论数
+#calendar,//日历
+#blog-news,//公告，包括个人信息，挡不住，博客园强烈要求展示它
+#profile_block,//blog-news里面的个人信息是可以挡住的
+#sidebar_scorerank,//侧边栏积分和排名
+#author_profile,//博客内容下方的个人信息 
+.listtitle,//“公告”
+#sidebar_shortcut {
+  //侧边栏常用链接
+  display: none;
+}
+//body和wrap应该全屏
+html,
+body,
+#wrap {
+  margin: 0;
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale; /*firefox*/
+  word-break: break-all;
+}
+
+//整个页面上的链接和列表的样式
+a {
+  text-decoration: none;
+  :visited {
+    text-decoration: none;
+    color: blue;
+  }
+}
+
+#blog-sidecolumn ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+@paddingDefault: 20px; //默认的padding
+@bannerHeight: 35px; //顶部导航栏的高度
+@mobileWidth: 1000px;
+//最顶部的banner
+#banner {
+  @media screen and (min-width: @mobileWidth) {
+    position: fixed;
+  }
+  background: white;
+  width: 100%;
+  height: @bannerHeight;
+  z-index: 100;
+  padding: 0 @paddingDefault;
+  font-family: Consolas;
+  font-size: 24px;
+  border-bottom-width: 1px;
+  border-bottom-color: #eeeeee;
+  border-bottom-style: solid;
+}
+//bigPart可用于left和right
+.bigPart {
+  overflow: scroll;
+  height: 100%;
+  > * {
+    padding: @paddingDefault;
+  }
+  //美观的滚动条
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: #f5f5f5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #000000;
+  }
+}
+@media screen and (min-width: @mobileWidth) {
+  //整体宏观布局
+  #main {
+    height: 100%;
+    width: 100%;
+    margin-top: @bannerHeight;
+    position: fixed;
+
+    #left {
+      float: left;
+      width: 70%;
+      .bigPart();
+    }
+    #right {
+      float: right;
+      width: 30%;
+      .bigPart();
+    }
+  }
+}
+@media screen and (max-width: @mobileWidth) {
+  #main {
+    .bigPart();
+    width: 100%;
+    height: calc(~"100% - " @bannerHeight);  
+  }
+}
+//博客内容主页上的标题
+.postTitle {
+  font-size: 2em;
+  font-family: "黑体";
+  color: black;
+  a {
+    color: black;
+    :visited {
+      color: black;
+    }
+  }
+}
+//博客内容主体
+#cnblogs_post_body {
+  * {
+    letter-spacing: 1px;
+    font-size: 22px;
+    position: static !important;
+  }
+  //要注意标题应该尽量区分开来
+  h5 {
+    font-size: 1.5em;
+    font-family: 楷体;
+  }
+  h4 {
+    font-size: 1.7em;
+    font-family: 楷体;
+  }
+  h3 {
+    font-size: 1.8em;
+    border-left-width: 5px;
+    border-left-color: aquamarine;
+    border-left-style: solid;
+    font-family: 楷体;
+  }
+  h2 {
+    font-size: 1.9em;
+    font-family: 楷体;
+  }
+  h1 {
+    font-size: 2em;
+    padding-bottom: 0.7em;
+    border-bottom: 1px solid #ddd;
+  }
+
+  p {
+    margin-top: 20px;
+    line-height: 1.7em;
+  }
+}
+//代码区
+* {
+  .cnblogs-markdown code,
+  .cnblogs_post_body code {
+    display: inline;
+    font-size: 1.1em;
+    border-style: none;
+  }
+  code * {
+    letter-spacing: -1px;
+    font-size: 1.1em;
+    border-style: none;
+  }
+  .cnblogs_code pre,
+  .cnblogs_code span,
+  .cnblogs-markdown .hljs,
+  .cnblogs-markdown code {
+    font-family: consolas !important;
+    font-size: 20px !important;
+    border-style: none !important;
+    background-color: #ffffee !important;
+  }
+}
+//表格
+#cnblogs_post_body td,
+.cnblogs-post-body th,
+.cnblogs-post-body td {
+  font-size: 20px;
+}
+//找找看
+#widget_my_zzk {
+  text-align: center;
+  #q {
+    //搜索框
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    padding-left: 10px;
+    font-size: 23px;
+    height: 30px;
+  }
+  #btnZzk {
+    //搜索按钮
+    display: none;
+  }
+}
+//绿色通道：好文要顶、关注我、收藏该文
+#green_channel {
+  width: 100%;
+  a {
+    font-size: 30px;
+  }
+}
+//评论框
+#tbCommentBody {
+  outline: none;
+  width: 100%;
+  resize: none;
+  font-size: 20px;
+}
+//移动端适配
+@media screen and (max-width: 1200px) {
+}

@@ -76,6 +76,11 @@ function parse(s) {
  * */
 function getFormulaImage(s, type) {
   var codecogs = "https://weiyinfu.cn/latexserver/render?formula="
+  //markdown之后会变成html，需要转换为普通文本
+  var div = $("<div></div>")
+  div.html(s)
+  s = div.text()
+  s=s.replace(/<br>/,"")
   var url = codecogs + encodeURIComponent(s)
   var ans = `<img class='${type}' src='${url}'  alt='${s}' />`
   return ans

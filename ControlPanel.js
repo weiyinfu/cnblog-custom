@@ -143,12 +143,13 @@ function bindEvent(a, links) {
     var handled = false
     if (e.ctrlKey && ch == "e" && a.postId) {
       //edit
-      location.href = links.edit
+      window.open(links.edit,"_blank")
       handled = true
     }
     if (e.ctrlKey && ch == "n") {
       //new
-      location.href = links.newPost
+      window.open(links.newPost,"_blank")
+      handled=true
     }
     if (e.keyCode == 27) {
       //escape

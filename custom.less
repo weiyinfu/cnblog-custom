@@ -49,11 +49,10 @@ body,
 a {
   text-decoration: none;
   :visited {
-    text-decoration: none;
     color: blue;
   }
 }
-
+//博客园侧边栏的无序列表，不要标号
 #blog-sidecolumn ul {
   list-style-type: none;
   padding: 0;
@@ -61,7 +60,8 @@ a {
 
 @paddingDefault: 20px; //默认的padding
 @bannerHeight: 35px; //顶部导航栏的高度
-@mobileWidth: 1000px;
+@mobileWidth: 1000px; //默认移动端的宽度
+
 //最顶部的banner
 #banner {
   @media screen and (min-width: @mobileWidth) {
@@ -74,17 +74,9 @@ a {
   padding: 0 @paddingDefault;
   font-family: Consolas;
   font-size: 24px;
-  border-bottom-width: 1px;
-  border-bottom-color: #eeeeee;
-  border-bottom-style: solid;
+  box-shadow: 0 1px 2px #eeeeee;
 }
-//bigPart可用于left和right
-.bigPart {
-  overflow: auto;
-  height: 100%;
-  > * {
-    padding: @paddingDefault;
-  }
+* {
   //美观的滚动条
   &::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -97,7 +89,15 @@ a {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #000000;
+    background-color: #aaaaaa;
+  }
+}
+//bigPart可用于left和right
+.bigPart {
+  overflow: auto;
+  height: 100%;
+  > * {
+    padding: @paddingDefault;
   }
 }
 @media screen and (min-width: @mobileWidth) {
@@ -124,7 +124,7 @@ a {
   #main {
     .bigPart();
     width: 100%;
-    height: calc(~"100% - " @bannerHeight);  
+    height: calc(~"100% - " @bannerHeight);
   }
 }
 //博客内容主页上的标题

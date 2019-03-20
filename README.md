@@ -16,8 +16,10 @@
 * index.js：根文件，利用此文件依赖以上各个插件
 
 # 开发方式
+## 部署
 在部署阶段，将webpack之后生成到dist中的css和js文件上传到博客园设置/文件，在设置中把css添加到头部html中，把js添加到底部html中，然后就可以使用了。
 
+## 开发
 在开发阶段，需要一边改一边查看效果，有两种方法实现：
-* 直接更改博客园设置，把头部css和底部js的URL改为localhost的资源，让css和js请求本地的web-dev-server服务器，这种方式会导致别的用户加载css和js失败。
-* 使用fiddler进行映射，映射到本地的web-dev-server。这种方式对其它用户没有影响（他们使用的js和css依旧为博客园“文件”中的内容）。fiddler可以将css和js请求映射为请求本地资源。
+* 下策：直接更改博客园设置，把头部css和底部js的URL改为localhost的资源，让css和js请求本地的web-dev-server服务器，这种方式会导致别的用户加载css和js失败。故为下策。
+* 上策：使用fiddler进行映射，映射到本地的web-dev-server。这种方式对其它用户没有影响（他们使用的js和css依旧为博客园“文件”中的内容）。fiddler可以将css和js请求映射为请求本地资源。
